@@ -12,29 +12,25 @@ import java.time.LocalDateTime;
 @AllArgsConstructor // 모든 필드를 포함하는 생성자를 자동으로 생성해 줌
 public class Schedule {
 
-    @Setter
-    private Long scheduleId;            // 고유 식별자(ID)
-    private String scheduleTodo;        // 할 일
-    private String scheduleWriter;      // 작성자명
-    private String schedulePassword;    // 비밀번호
+
+    private Long scheduleId;                // 고유 식별자(ID)
+    private String scheduleTodo;            // 할 일
+    private String scheduleWriter;          // 작성자명
+    private String schedulePassword;        // 비밀번호
     private LocalDateTime scheduleCreated;  // 작성일
     private LocalDateTime scheduleUpdated;  // 수정일
 
     public Schedule(ScheduleRequestDto scheduleRequestDto) {
-
         this.scheduleTodo = scheduleRequestDto.getScheduleTodo();
         this.scheduleWriter = scheduleRequestDto.getScheduleWriter();
         this.schedulePassword = scheduleRequestDto.getSchedulePassword();
-
+        this.scheduleCreated = LocalDateTime.now();
+        this.scheduleUpdated = LocalDateTime.now();
     }
 
-    public void update(ScheduleRequestDto scheduleResponseDto){
-
-        this.scheduleTodo = scheduleResponseDto.getScheduleTodo();
-        this.scheduleWriter = scheduleResponseDto.getScheduleWriter();
-        this.schedulePassword = scheduleResponseDto.getSchedulePassword();
-        this.scheduleUpdated = scheduleResponseDto.getScheduleUpdated();
-
+    public void update(String scheduleTodo, String scheduleWriter) {
+        this.scheduleTodo = scheduleTodo;
+        this.scheduleWriter = scheduleWriter;
     }
 
 }

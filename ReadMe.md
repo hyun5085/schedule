@@ -1,1 +1,13 @@
-안녕하세요
+### API
+
+<div style="overflow-x: auto;">
+
+| **Method** | **Endpoint**     | **Description**                     | **Parameters**                                                                            | **Request Body**                                                  | **Response**                                                                                                                                     | **Status Code** |
+|------------|------------------|-------------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| `POST`     | `/schedule`      | 일정 생성                           | 없음                           | {<br/>"task": string,<br/>"password": string,<br/>"memberName": string<br/> }` | `{ "id": long, "task": string, "password": string, "memberName": string, "createdAt": string, "updatedAt": string }                              | `200 OK`        |
+| `GET`      | `/schedule`      | 일정 목록 조회                      | Query: <br> - `updatedDate` (예: "2025-02-02", `optional`)<br> - `memberName` (`optional`) | 없음                                                                | `[ { "id": long, "task": string, "password": string, "memberName": string, "createdAt": string, "updatedAt": string }, ... ]`                     | `200 OK`        |
+| `GET`      | `/schedule/{id}` | 일정 단건 조회                       | Path: <br> - `id`                                                                         | 없음                                                                | `{ "id": long, "task": string, "password": string, "memberName": string, "createdAt": string, "updatedAt": string }`                              | `200 OK`        |
+| `PUT`      | `/schedule/{id}` | 일정 수정                            | Path: <br> - `id`                                                                         | `{ "task": string, "password": string, "memberName": string }`    | `{ "id": long, "task": string, "password": string, "memberName": string, "createdAt": string, "updatedAt": string }`                              | `200 OK`        |
+| `DELETE`   | `/schedule/{id}` | 일정 삭제                           | Path: <br> - `id` <br> Query: <br> - `password` (`mandatory`)                              | 없음                                                                | 없음                                                                                                                                             | `200 OK`        |
+
+</div>
