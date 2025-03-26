@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter //  클래스의 모든 필드에 대한 Getter 메서드를 자동으로 생성해 줌
 @AllArgsConstructor // 모든 필드를 포함하는 생성자를 자동으로 생성해 줌
@@ -16,16 +17,14 @@ public class Schedule {
     private String scheduleTodo;        // 할 일
     private String scheduleWriter;      // 작성자명
     private String schedulePassword;    // 비밀번호
-    private Timestamp scheduleCreated;  // 작성일
-    private Timestamp scheduleUpdated;  // 수정일
+    private LocalDateTime scheduleCreated;  // 작성일
+    private LocalDateTime scheduleUpdated;  // 수정일
 
     public Schedule(ScheduleRequestDto scheduleRequestDto) {
 
         this.scheduleTodo = scheduleRequestDto.getScheduleTodo();
         this.scheduleWriter = scheduleRequestDto.getScheduleWriter();
         this.schedulePassword = scheduleRequestDto.getSchedulePassword();
-        this.scheduleCreated = scheduleRequestDto.getScheduleCreated();
-        this.scheduleUpdated = scheduleRequestDto.getScheduleUpdated();
 
     }
 
